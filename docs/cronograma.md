@@ -64,5 +64,3 @@ Para cada semana ser considerada concluída:
 * O código deve estar no repositório.
 * A funcionalidade deve ser validada fisicamente (LED ou Serial).
 * A documentação da semana deve estar atualizada no log do projeto.
-
-> Gerado para o Projeto Monitor de Alertas Residenciais - LARAF 2026
