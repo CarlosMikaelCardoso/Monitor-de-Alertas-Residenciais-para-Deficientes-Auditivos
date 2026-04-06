@@ -1,68 +1,72 @@
 # 📅 Cronograma Detalhado: Projeto Alerta Interfone (LARAF 2026)
 
-Este cronograma detalha as 18 semanas de desenvolvimento do "Tradutor Sensorial". Devido à ausência temporária de hardware, as atividades foram redirecionadas para a criação de um **Gêmeo Digital**, garantindo a validação lógica e matemática do sistema antes da montagem física.
+Este cronograma detalha as 18 semanas de desenvolvimento do "Tradutor Sensorial". Devido à ausência temporária de hardware, o foco está na **validação lógica e simulação virtual**. O plano está dividido em dois períodos para respeitar o recesso escolar.
 
 ## 👥 Estrutura da Equipe e Responsabilidades
 
-* **Especialista em DSP (Processamento de Sinais):** Foco em algoritmos de áudio, FFT, filtragem e análise de frequências.
+* **Especialista em DSP (Processamento de Sinais):** Responsável por algoritmos de áudio, FFT, filtragem e análise de frequências.
 * **Arquiteto de Firmware:** Responsável pela lógica do ESP32, uso do FreeRTOS e simulação de componentes no Wokwi.
-* **Engenheiro de Conectividade:** Foco na integração com Telegram Bot API, protocolos de rede (Wi-Fi/HTTP) e segurança.
+* **Engenheiro de Conectividade:** Responsável pela integração com Telegram Bot API, protocolos de rede (Wi-Fi/HTTP) e segurança.
 * **Designer de Produto (UX/UI):** Responsável pelo design da case (CAD), fluxos de experiência do usuário e acessibilidade.
 
 ---
 
-## 🗓️ Fase 1: Imersão e Pesquisa (Semanas 1-4)
-**Objetivo:** Configuração de ambientes virtuais e fundamentação teórica.
+## 1º Período: Pesquisa e Prototipagem Virtual (Abril - Junho)
+
+### Fase 1: Imersão e Pesquisa
+**Foco:** Fundamentação teórica e setup de simuladores.
 
 | Semana | Datas | Atividade | Detalhamento por Membro |
 | :--- | :--- | :--- | :--- |
-| **01** | 23/02 - 01/03 | Setup e Requisitos | **Todos:** Mapeamento de requisitos de acessibilidade; Definição da pinagem (GPIO) simulada no ESP32 para evitar conflitos. |
-| **02** | 02/03 - 08/03 | Estudos Técnicos | **DSP:** Estudo da biblioteca `driver/i2s.h` e FFT. <br> **Firmware:** Configuração do simulador Wokwi. <br> **Conectividade:** Estudo da API de Bots do Telegram. <br> **UX:** Pesquisa de padrões visuais de alerta. |
-| **03** | 09/03 - 15/03 | Validação de Ferramentas | **DSP:** Coleta de áudios de campainhas para análise. <br> **Firmware:** Hello World de LED no simulador. <br> **Conectividade:** Criação do Bot e teste de mensagens via cURL/Postman. <br> **UX:** Desenho do fluxo de interação usuário-dispositivo. |
-| **04** | 16/03 - 22/03 | Modelagem Inicial | **DSP:** Análise espectral dos áudios no Audacity/Python. <br> **Firmware:** Teste de concorrência Wi-Fi no simulador. <br> **UX:** Esboços iniciais da case considerando acústica. |
+| **01** | 08/04 - 14/04 | Setup e Requisitos | **Todos:** Mapeamento de requisitos de acessibilidade; Definição da pinagem (GPIO) simulada no ESP32 para evitar conflitos. |
+| **02** | 15/04 - 21/04 | Estudos Técnicos | **DSP:** Estudo da biblioteca `driver/i2s.h` e FFT. **Firmware:** Configuração do simulador Wokwi. **Conexão:** Estudo da API de Bots do Telegram. **UX:** Pesquisa de padrões visuais de alerta. |
+| **03** | 22/04 - 28/04 | Validação Digital | **DSP:** Coleta de áudios de campainhas para análise. **Firmware:** Hello World de LED no simulador. **Conexão:** Teste de envio de mensagens simples via Bot. **UX:** Desenho do fluxo de interação usuário-dispositivo. |
+| **04** | 29/04 - 05/05 | Modelagem Inicial | **DSP:** Análise espectral dos áudios no Python. **Firmware:** Teste de concorrência Wi-Fi no simulador. **UX:** Esboços iniciais da case considerando acústica para o microfone INMP441. |
 
----
-
-## 🚀 Fase 2: Desenvolvimento do MVP Virtual (Semanas 5-8)
-**Objetivo:** Implementação da lógica central e integração de sistemas em software.
+### Fase 2: Desenvolvimento do MVP Virtual
+**Foco:** Implementação da lógica central e integração em software.
 
 | Semana | Datas | Atividade | Detalhamento por Membro |
 | :--- | :--- | :--- | :--- |
-| **05** | 23/03 - 29/03 | Sprint de Lógica Base | **DSP:** Script em Python para detectar frequências específicas. <br> **Firmware:** Lógica de controle de animações da Fita LED (WS2812B). <br> **Conectividade:** Implementação da lógica de envio de alertas em C++. |
-| **06** | 30/03 - 05/04 | Sprint Conectividade | **Conectividade:** Gestão de notificações em tempo real e reconexão automática. <br> **UX:** Modelagem 3D básica da case para impressão. |
-| **07** | 06/04 - 12/04 | Integração de Software | **Firmware/DSP:** Tradução do algoritmo Python para C++. <br> **Todos:** Junção dos módulos usando FreeRTOS Tasks no ESP32 para processar "áudio" simulado e rede simultaneamente. |
-| **08** | 13/04 - 19/04 | Validação em Simulador | **Todos:** Testes de latência no Wokwi entre o gatilho sonoro (simulado) e o alerta visual/digital. |
+| **05** | 06/05 - 12/05 | Sprint de Lógica | **DSP:** Script em Python para detecção de frequências específicas. **Firmware:** Lógica de controle de animações da Fita LED (WS2812B). |
+| **06** | 13/05 - 19/05 | Sprint Conectividade | **Conexão:** Implementação da API do Telegram e lógica de notificações em tempo real. **UX:** Modelagem 3D básica da case para fabricação. |
+| **07** | 20/05 - 26/05 | Integração de Software | **Firmware/DSP:** Tradução do algoritmo Python para C++. Uso de FreeRTOS Tasks no ESP32 para processar áudio e rede. |
+| **08** | 27/05 - 02/06 | Validação Virtual | **Todos:** Testes de latência no Wokwi entre o gatilho sonoro simulado e o alerta visual/digital. |
 
----
-
-## 🛠️ Fase 3: Refinamento e Modelagem Mecânica (Semanas 9-12)
-**Objetivo:** Otimização do código e design final para fabricação.
+### Fase 3: Refinamento e Design (Início)
+**Foco:** Otimização do código e design para fabricação.
 
 | Semana | Datas | Atividade | Detalhamento por Membro |
 | :--- | :--- | :--- | :--- |
-| **09** | 20/04 - 26/04 | Otimização de Código | **DSP/Firmware:** Otimização de memória e processamento FFT. <br> **Conectividade:** Implementação de segurança SSL/TLS nas requisições. |
-| **10** | 27/04 - 03/05 | Design Industrial | **UX:** Finalização do CAD 3D com furações para microfone INMP441 e difusão de LEDs. |
-| **11** | 04/05 - 10/05 | Calibração Lógica | **DSP:** Ajuste de sensibilidade teórica para ignorar ruídos (palmas, portas) baseando-se nos dados da Fase 1. |
-| **12** | 11/05 - 17/05 | Teste de Robustez | **Firmware:** Simulação de quedas de energia e Wi-Fi no código para validar a resiliência do sistema. |
+| **09** | 03/06 - 09/06 | Otimização | **DSP/Firmware:** Otimização de memória e processamento FFT. **Conexão:** Implementação de segurança SSL/TLS nas requisições. |
+| **10** | 10/06 - 16/06 | Design Industrial | **UX:** Finalização do CAD 3D com furações para entrada de som e saída de luz. |
+| **11** | 17/06 - 23/06 | Calibração Lógica | **DSP:** Ajuste de sensibilidade teórica para ignorar barulhos domésticos e focar no interfone. |
+| **12** | 24/06 - 30/06 | Robustez Virtual | **Firmware:** Simulação de quedas de conexão e teste de reconexão automática após falha de rede. |
 
 ---
 
-## 📊 Fase 4: Documentação e Entrega do MVP (Semanas 13-18)
-**Objetivo:** Consolidação de dados e preparação para o hardware.
+## RECESSO / FÉRIAS (Julho)
+
+---
+
+## 2º Período: Finalização e Entrega (Agosto - Setembro)
+
+### Fase 4: Consolidação de Dados e Entrega do MVP
+**Foco:** Métricas, manuais e apresentação dos resultados.
 
 | Semana | Datas | Atividade | Detalhamento por Membro |
 | :--- | :--- | :--- | :--- |
-| **13** | 18/05 - 24/05 | Geração de Métricas | **DSP:** Relatório de taxa de acerto teórica vs falsos positivos. <br> **Conectividade:** Log de sucesso de entrega de notificações. |
-| **14** | 25/05 - 31/05 | Relatório Técnico | **Todos:** Escrita detalhada da arquitetura de software e decisões de design. |
-| **15** | 01/06 - 07/06 | Mídia e Pitch | **UX:** Produção de vídeo demonstrativo usando a simulação e o modelo 3D. |
-| **16** | 08/06 - 14/06 | Manual do Usuário | **UX/Conectividade:** Guia de configuração do Bot e guia de instalação física. |
-| **17** | 15/06 - 21/06 | Preparação Final | **Firmware:** Revisão final do código no GitHub e organização de pastas. |
-| **18** | 22/06 - 30/06 | Entrega do MVP Virtual | Apresentação para o LARAF e entrega do protótipo funcional simulado. |
+| **13** | 03/08 - 09/08 | Retomada e Logs | **DSP:** Coleta de logs de acerto teórico na detecção. **Conexão:** Testes de estresse de rede em ambiente simulado. |
+| **14** | 10/08 - 16/08 | Relatório Técnico | **Todos:** Escrita do documento detalhando a arquitetura de software e os desafios de simulação superados. |
+| **15** | 17/08 - 23/08 | Mídia e Pitch | **UX:** Produção de vídeo demonstrativo da simulação e fotografia profissional do modelo 3D. |
+| **16** | 24/08 - 30/08 | Manual do Usuário | **UX/Conexão:** Criação de guia passo-a-passo para instalação e configuração do Wi-Fi/Telegram pelo usuário. |
+| **17** | 31/08 - 06/09 | Preparação Final | **Firmware:** Revisão final do código no GitHub e ensaio da apresentação final. |
+| **18** | 07/09 - 13/09 | Entrega do MVP | **Todos:** Apresentação para o LARAF e entrega do relatório final e protótipo funcional simulado. |
 
 ---
 
-## ✅ Definição de Pronto (DoD)
+## Definição de Pronto (DoD)
 Para cada semana ser considerada concluída:
-1.  O código gerado deve estar compilando (no simulador ou IDE).
-2.  A documentação de pesquisa/simulação da semana deve estar no repositório.
-3.  As tarefas individuais devem ser validadas em reunião de sincronização.
+* O código gerado deve compilar sem erros no simulador ou IDE.
+* A documentação de pesquisa ou simulação da semana deve estar atualizada no log do projeto.
+* As tarefas individuais devem ser validadas em reunião de sincronização da equipe.
