@@ -1,69 +1,56 @@
 # 🔊 Monitor de Alertas Residenciais para Deficientes Auditivos (LARAF 2026)
 
-> **Status do Projeto:** 💻 Fase de Simulação e Validação Lógica (Aguardando Chegada de Hardware)
+> **Status do Projeto:** 🔍 Fase de Pesquisa e Simulação (Aguardando Hardware)
 
-## 📝 Visão Geral
-Este projeto atua como um **"tradutor sensorial"** inteligente para promover a autonomia de pessoas com deficiência auditiva, monitorando o ambiente para identificar padrões sonoros (interfones, campainhas) e convertendo-os em alertas visuais e notificações. 
-
-Devido à indisponibilidade momentânea dos componentes físicos, o plano de desenvolvimento foi refatorado para focar em **modelagem matemática, simulação virtual e arquitetura de software**, garantindo que a lógica esteja pronta para o *deploy* assim que o hardware chegar.
+Este projeto atua como um **"tradutor sensorial"** inteligente, desenvolvido para promover a autonomia de pessoas com deficiência auditiva. O dispositivo monitora o ambiente para identificar padrões sonoros específicos (interfones, campainhas ou alarmes) e converte-os em alertas visuais (LEDs RGB) e notificações digitais via Wi-Fi.
 
 ---
 
-## 👥 Estrutura da Equipe (4 Membros)
-
-Para otimizar o desenvolvimento teórico e a simulação, a equipe foi dividida nas seguintes especialidades:
-
-1.  **Especialista em Processamento Digital de Sinais (DSP):**
-    * **Foco:** Modelagem matemática e algoritmos de detecção sonora.
-    * **Responsabilidades:** Simulação de FFT (Fast Fourier Transform) e filtros de áudio em Python/C++.
-2.  **Arquiteto de Firmware e Simulação:**
-    * **Foco:** Lógica do ESP32 e ambientes virtuais (Wokwi).
-    * **Responsabilidades:** Desenvolvimento da lógica de estados e multitarefa (FreeRTOS) para gerenciar sensores e atuadores.
-3.  **Engenheiro de Conectividade e Integração:**
-    * **Foco:** Protocolos de rede e API do Telegram.
-    * **Responsabilidades:** Configuração do bot de notificações, segurança da conexão e simulação de tráfego de dados.
-4.  **Designer de Produto e UX/UI:**
-    * **Foco:** Design industrial, documentação e experiência do usuário.
-    * **Responsabilidades:** Modelagem 3D da case (CAD), fluxogramas de interação e manuais técnicos.
+## 🎯 Estratégia de Contingência: Gêmeo Digital
+Devido à indisponibilidade momentânea dos componentes físicos, o foco do desenvolvimento foi redirecionado para a **validação científica** e **prototipagem virtual**. Esta abordagem garante que a inteligência do sistema (algoritmos de DSP e lógica de rede) esteja pronta para o *deploy* imediato assim que o hardware chegar.
 
 ---
 
-## 🗓️ Cronograma de Desenvolvimento (Foco em Simulação)
+## 👥 Estrutura da Equipe (4 Especialistas)
 
-Este cronograma de 18 semanas prioriza a criação de um "Gêmeo Digital" do projeto.
+A equipe foi reorganizada para cobrir todas as frentes de pesquisa e simulação:
 
-### Fase 1: Imersão e Setup Virtual (Semanas 1-4)
-| Semana | Atividade | Foco das Tarefas |
-| :--- | :--- | :--- |
-| **01-02** | Configuração de Ambiente | Setup do Wokwi (simulador ESP32) e bibliotecas de processamento de áudio. |
-| **03-04** | Estudos de Protocolo | Validação teórica do protocolo I2S e arquitetura Webhook para o Telegram. |
-
-### Fase 2: Desenvolvimento de Lógica e MVP Simulado (Semanas 5-8)
-| Semana | Atividade | Foco das Tarefas |
-| :--- | :--- | :--- |
-| **05-06** | Sprint de DSP | Testes de algoritmos de diferenciação de som usando arquivos de áudio pré-gravados (.wav). |
-| **07-08** | Integração Virtual | Unificação do código de processamento com a lógica de Wi-Fi em ambiente simulado. |
-
-### Fase 3: Arquitetura de Software e Design Mecânico (Semanas 9-12)
-| Semana | Atividade | Foco das Tarefas |
-| :--- | :--- | :--- |
-| **09-10** | Refinamento de Código | Otimização do uso de memória do ESP32 e implementação de segurança SSL/TLS. |
-| **11-12** | Modelagem 3D | Design da estrutura física (case) considerando furos para captação de som e difusão de luz LED. |
-
-### Fase 4: Coleta de Dados e Prontidão de Hardware (Semanas 13-18)
-| Semana | Atividade | Foco das Tarefas |
-| :--- | :--- | :--- |
-| **13-14** | Testes de Estresse | Simulação de funcionamento contínuo e tratamento de erros de conexão. |
-| **15-16** | Documentação Final | Criação de manuais de usuário e relatórios técnicos de performance teórica. |
-| **17-18** | Entrega do MVP Virtual | Apresentação do protótipo simulado e preparação para montagem física. |
+1.  **Especialista em Processamento Digital de Sinais (DSP):** Modelagem matemática, análise de frequências e simulação de filtros FFT em Python.
+2.  **Arquiteto de Firmware e Simulação:** Desenvolvimento da lógica multitarefa (FreeRTOS) e prototipagem no simulador Wokwi.
+3.  **Engenheiro de Conectividade e Integração:** Configuração da API do Telegram Bot, segurança da informação e fluxos de rede.
+4.  **Designer de Produto e UX/UI:** Modelagem 3D da case, estudo de ergonomia visual e documentação técnica de acessibilidade.
 
 ---
 
-## 🛠️ Tecnologias e Ferramentas de Apoio
-* **Simulação de Hardware:** [Wokwi](https://wokwi.com/) (ESP32 / WS2812B).
-* **Análise de Áudio:** Python (Librosa/NumPy) para prototipagem de FFT.
-* **Modelagem 3D:** Tinkercad ou Fusion 360 para o design da case.
-* **Firmware:** VS Code + PlatformIO / Arduino IDE.
+## 🗓️ Cronograma de 18 Semanas (Refatorado)
+
+O cronograma original foi adaptado para marcos de validação teórica:
+
+* **Fase 1: Imersão e Pesquisa (Sem. 1-4):** Levantamento de assinaturas sonoras e estudo de protocolos de áudio I2S.
+* **Fase 2: Desenvolvimento Virtual (Sem. 5-8):** Criação de algoritmos de detecção em Python e simulação de notificações via Telegram.
+* **Fase 3: Arquitetura e Design (Sem. 9-12):** Otimização do código C++ e modelagem CAD 3D para a estrutura física do dispositivo.
+* **Fase 4: Coleta de Dados e Entrega (Sem. 13-18):** Testes de estresse em ambiente simulado e finalização da documentação técnica para o LARAF.
+
+---
+
+## 🧪 Frentes de Pesquisa Atuais
+
+### 1. Pesquisa de Assinaturas Sonoras
+* Análise espectral de diferentes tipos de campainhas e interfones para identificar frequências dominantes (Hz).
+* Estudo de janelas de amostragem (FFT) para minimizar falsos positivos causados por ruídos domésticos.
+
+### 2. Simulação Computacional
+* **Wokwi:** Validação da lógica do ESP32, controle da fita LED WS2812B e integração Wi-Fi.
+* **Python (Librosa/NumPy):** Prototipagem de filtros digitais e validação matemática da detecção sonora.
+* **CAD (Fusion 360/Tinkercad):** Design da case considerando a acústica necessária para o microfone INMP441.
+
+---
+
+## 🚀 Tecnologias e Referências
+* **Microcontrolador:** ESP32 NodeMCU (30/38 pinos).
+* **Sensor de Áudio:** Microfone I2S INMP441.
+* **Atuadores:** Fita LED RGB 5V (WS2812B).
+* **Notificações:** Telegram Bot API e Protocolo HTTP/HTTPS.
 
 ---
 *Projeto desenvolvido para o Laboratório de Automação e Robótica Aplicada e Fabricação (LARAF).*
