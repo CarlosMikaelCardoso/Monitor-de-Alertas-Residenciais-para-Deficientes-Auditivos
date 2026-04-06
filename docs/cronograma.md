@@ -1,4 +1,4 @@
-# 📅 Cronograma Detalhado: Projeto Alerta Interfone (LARAF 2026)
+# 📅 Cronograma Detalhado: Monitor de Alertas Residenciais para Deficientes Auditivos (LARAF 2026)
 
 Este cronograma detalha as 18 semanas de desenvolvimento do "Tradutor Sensorial". Devido à ausência temporária de hardware, o foco está na **validação lógica e simulação virtual**. O plano está dividido em dois períodos para respeitar o recesso escolar.
 
