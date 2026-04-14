@@ -1,7 +1,5 @@
 # 📅 Cronograma Detalhado: Monitor de Alertas Residenciais para Deficientes Auditivos (LARAF 2026)
 
-Este cronograma detalha as 18 semanas de desenvolvimento do "Tradutor Sensorial". Devido à ausência temporária de hardware, o foco está na **validação lógica e simulação virtual**. O plano foi organizado em fases, com responsabilidades distribuídas por perfil.
-
 ## 👥 Estrutura da Equipe e Responsabilidades
 
 * **Especialista em DSP (Processamento de Sinais):** Responsável por algoritmos de áudio, FFT, filtragem e análise de frequências.
@@ -11,7 +9,7 @@ Este cronograma detalha as 18 semanas de desenvolvimento do "Tradutor Sensorial"
 
 ---
 
-## 1º Período: Pesquisa e Prototipagem Virtual (Abril - Junho)
+## 1º Período: Pesquisa e Prototipagem Virtual
 
 ### Fase 1: Imersão e Pesquisa
 **Foco:** Fundamentação teórica e setup de simuladores.
@@ -33,7 +31,7 @@ Este cronograma detalha as 18 semanas de desenvolvimento do "Tradutor Sensorial"
 | **07** | Integração de Software | **Firmware/DSP:** Tradução do algoritmo Python para C++. Uso de FreeRTOS Tasks no ESP32 para processar áudio e rede. |
 | **08** | Validação Virtual | **Todos:** Testes de latência no Wokwi entre o gatilho sonoro simulado e o alerta visual/digital. |
 
-### Fase 3: Refinamento e Design (Início)
+### Fase 3: Refinamento e Design
 **Foco:** Otimização do código e design para fabricação.
 
 | Semana | Atividade | Detalhamento por Membro |
