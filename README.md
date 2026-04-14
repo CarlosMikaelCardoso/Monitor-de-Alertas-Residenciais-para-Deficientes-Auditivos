@@ -6,11 +6,6 @@ Este projeto atua como um **"tradutor sensorial"** inteligente, desenvolvido par
 
 ---
 
-## 🎯 Estratégia de Contingência: Gêmeo Digital
-Devido à indisponibilidade momentânea dos componentes físicos, o foco do desenvolvimento foi redirecionado para a **validação científica** e **prototipagem virtual**. Esta abordagem garante que a inteligência do sistema (algoritmos de DSP e lógica de rede) esteja pronta para o *deploy* imediato assim que o hardware chegar.
-
----
-
 ## 👥 Estrutura da Equipe (4 Especialistas)
 
 A equipe foi reorganizada para cobrir todas as frentes de pesquisa e simulação:
