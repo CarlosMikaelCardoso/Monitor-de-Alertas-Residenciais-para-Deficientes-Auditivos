@@ -43,7 +43,7 @@
 
 ---
 
-## 2º Período: Finalização e Entrega (Agosto - Setembro)
+## 2º Período: Finalização e Entrega 
 
 ### Fase 4: Consolidação de Dados e Entrega do MVP
 **Foco:** Métricas, manuais e apresentação dos resultados.
