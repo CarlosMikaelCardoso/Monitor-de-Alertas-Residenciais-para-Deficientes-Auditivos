@@ -45,10 +45,6 @@ Este cronograma detalha as 18 semanas de desenvolvimento do "Tradutor Sensorial"
 
 ---
 
-## RECESSO / FÉRIAS (Julho)
-
----
-
 ## 2º Período: Finalização e Entrega (Agosto - Setembro)
 
 ### Fase 4: Consolidação de Dados e Entrega do MVP
