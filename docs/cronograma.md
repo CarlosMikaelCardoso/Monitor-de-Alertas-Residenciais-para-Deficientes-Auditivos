@@ -1,68 +1,474 @@
-# 📅 Cronograma Detalhado: Monitor de Alertas Residenciais para Deficientes Auditivos (LARAF 2026)
-
-## 👥 Estrutura da Equipe e Responsabilidades
-
-* **Especialista em DSP (Processamento de Sinais):** Responsável por algoritmos de áudio, FFT, filtragem e análise de frequências.
-* **Arquiteto de Firmware:** Responsável pela lógica do ESP32, uso do FreeRTOS e simulação de componentes no Wokwi.
-* **Engenheiro de Conectividade:** Responsável pela integração com Telegram Bot API, protocolos de rede (Wi‑Fi/HTTP) e segurança.
-* **Designer de Produto (UX/UI):** Responsável pelo design da case (CAD), fluxos de experiência do usuário e acessibilidade.
+# 📌 Backlog (formato Trello) — Monitor de Alertas Residenciais para Deficientes Auditivos (LARAF 2026)
 
 ---
 
-## 1º Período: Pesquisa e Prototipagem Virtual
+# 1º Período — Pesquisa e Prototipagem Virtual
 
-### Fase 1: Imersão e Pesquisa
-**Foco:** Fundamentação teórica e setup de simuladores.
+## Épico F1 — Imersão e Pesquisa
 
-| Semana | Atividade | Detalhamento por Membro |
-| :--- | :--- | :--- |
-| **01** | Setup e Requisitos | **Todos:** Mapeamento de requisitos de acessibilidade; Definição da pinagem (GPIO) simulada no ESP32 para evitar conflitos. |
-| **02** | Estudos Técnicos | **DSP:** Estudo da biblioteca `driver/i2s.h` e FFT. **Firmware:** Configuração do simulador Wokwi. **Conexão:** Estudo da API de Bots do Telegram. **UX:** Pesquisa de referências de sinalização visual tátil e luminosa. |
-| **03** | Validação Digital | **DSP:** Coleta de áudios de campainhas para análise. **Firmware:** Hello World de LED no simulador. **Conexão:** Teste de envio de mensagens simples via Bot. **UX:** Wireframe do fluxo de onboarding. |
-| **04** | Modelagem Inicial | **DSP:** Análise espectral dos áudios no Python. **Firmware:** Teste de concorrência Wi‑Fi no simulador. **UX:** Esboços iniciais da case considerando acústica e difusão de luz. |
+### Card F1.1 — Escopo do MVP + Requisitos + Arquitetura macro
+**Objetivo:** definir o MVP com clareza (o que entra/saí), requisitos e arquitetura geral.
 
-### Fase 2: Desenvolvimento do MVP Virtual
-**Foco:** Implementação da lógica central e integração em software.
+**Checklist — DSP**
+- [ ] Definir lista de sons-alvo do MVP (ex.: campainha/interfone/alarme)
+- [ ] Definir lista de “não-alvos” (ruídos domésticos) para reduzir falso positivo
+- [ ] Propor abordagem inicial de detecção (FFT/bandas/limiares/cooldown)
 
-| Semana | Atividade | Detalhamento por Membro |
-| :--- | :--- | :--- |
-| **05** | Sprint de Lógica | **DSP:** Script em Python para detecção de frequências específicas. **Firmware:** Lógica de controle de animações da Fita LED (WS2812B). |
-| **06** | Sprint Conectividade | **Conexão:** Implementação da API do Telegram e lógica de notificações em tempo real. **UX:** Modelagem 3D básica da case para fabricação. |
-| **07** | Integração de Software | **Firmware/DSP:** Tradução do algoritmo Python para C++. Uso de FreeRTOS Tasks no ESP32 para processar áudio e rede. |
-| **08** | Validação Virtual | **Todos:** Testes de latência no Wokwi entre o gatilho sonoro simulado e o alerta visual/digital. |
+**Checklist — Firmware**
+- [ ] Definir arquitetura FreeRTOS (tasks, filas, estados)
+- [ ] Definir pinagem simulada (GPIO/I2S/LED/botões) sem conflitos
+- [ ] Estruturar projeto (pastas, padrão de nomes, build)
 
-### Fase 3: Refinamento e Design
-**Foco:** Otimização do código e design para fabricação.
+**Checklist — Conectividade**
+- [ ] Definir fluxo Wi‑Fi → Telegram (eventos, retries, timeouts)
+- [ ] Definir estratégia de configuração/segredos (token/chat_id fora do código)
+- [ ] Definir requisitos de confiabilidade (reconexão/backoff)
 
-| Semana | Atividade | Detalhamento por Membro |
-| :--- | :--- | :--- |
-| **09** | Otimização | **DSP/Firmware:** Otimização de memória e processamento FFT. **Conexão:** Implementação de segurança SSL/TLS nas requisições. |
-| **10** | Design Industrial | **UX:** Finalização do CAD 3D com furações para entrada de som e saída de luz. |
-| **11** | Calibração Lógica | **DSP:** Ajuste de sensibilidade teórica para ignorar barulhos domésticos e focar no interfone. |
-| **12** | Robustez Virtual | **Firmware:** Simulação de quedas de conexão e teste de reconexão automática após falha de rede. |
+**Checklist — UX/UI**
+- [ ] Definir personas e cenários (distância, ambientes, expectativas)
+- [ ] Definir requisitos de acessibilidade do alerta (padrões, brilho, redundância)
+- [ ] Definir fluxo do usuário (instalação → configuração → teste)
 
----
+**Entregáveis**
+- Documento: escopo do MVP + requisitos + decisões macro
+- Mapa de arquitetura (blocos) e estados do sistema
 
-## 2º Período: Finalização e Entrega 
-
-### Fase 4: Consolidação de Dados e Entrega do MVP
-**Foco:** Métricas, manuais e apresentação dos resultados.
-
-| Semana | Atividade | Detalhamento por Membro |
-| :--- | :--- | :--- |
-| **13** | Retomada e Logs | **DSP:** Coleta de logs de acerto teórico na detecção. **Conexão:** Testes de estresse de rede em ambiente simulado. |
-| **14** | Relatório Técnico | **Todos:** Escrita do documento detalhando a arquitetura de software e os desafios de simulação superados. |
-| **15** | Mídia e Pitch | **UX:** Produção de vídeo demonstrativo da simulação e fotografia profissional do modelo 3D. |
-| **16** | Manual do Usuário | **UX/Conexão:** Criação de guia passo-a-passo para instalação e configuração do Wi‑Fi/Telegram pelo usuário. |
-| **17** | Preparação Final | **Firmware:** Revisão final do código no GitHub e ensaio da apresentação final. |
-| **18** | Entrega do MVP | **Todos:** Apresentação para o LARAF e entrega do relatório final e protótipo funcional simulado. |
+**Aceite**
+- MVP definido (eventos suportados + comportamento LED + notificação)
+- Arquitetura macro aprovada por todos (responsabilidades e fluxos)
 
 ---
 
-## Definição de Pronto (DoD)
+### Card F1.2 — Provas de conceito (PoCs) técnicas
+**Objetivo:** reduzir risco técnico com PoCs simples e funcionais.
 
-Para cada semana ser considerada concluída:
+**Checklist — DSP**
+- [ ] Montar script Python para espectrograma/FFT e extração de picos
+- [ ] Definir janela FFT e taxa de amostragem inicial (com justificativa)
+- [ ] Listar limitações esperadas (latência, resolução, ruído)
 
-* O código gerado deve compilar sem erros no simulador ou IDE.
-* A documentação de pesquisa ou simulação da semana deve estar atualizada no log do projeto.
-* As tarefas individuais devem ser validadas em reunião de sincronização da equipe.
+**Checklist — Firmware**
+- [ ] Subir Wokwi com ESP32 + periféricos base (LED/WS2812B ou equivalente)
+- [ ] PoC: controle básico de LED (on/off e padrões simples)
+- [ ] PoC: FreeRTOS (2 tasks + fila simples)
+
+**Checklist — Conectividade**
+- [ ] PoC: Telegram Bot enviando mensagem simples
+- [ ] Definir formato padrão de mensagem (campos mínimos)
+- [ ] Registrar erros comuns e como diagnosticar
+
+**Checklist — UX/UI**
+- [ ] Benchmark de soluções similares (alerta visual/acessibilidade)
+- [ ] Rascunhar padrões de alerta (ritmo/pulsos por evento)
+
+**Entregáveis**
+- PoC Telegram + PoC LED + PoC tasks FreeRTOS
+- Script Python de análise + anotações
+
+**Aceite**
+- PoCs executam com roteiro reprodutível (passo a passo)
+
+---
+
+### Card F1.3 — Dataset de áudio (curadoria + metadata)
+**Objetivo:** ter base de teste para calibrar detecção e validar falsos positivos.
+
+**Checklist — DSP**
+- [ ] Definir padrão de arquivos (formato, sample rate, normalização)
+- [ ] Coletar sons-alvo em variações (distância/ambiente/volume)
+- [ ] Coletar ruídos negativos (TV, conversa, panela, porta, etc.)
+- [ ] Criar metadata (tipo, ambiente, distância, observações)
+
+**Checklist — Firmware**
+- [ ] Definir como simular/injetar testes (gatilhos, logs, sequências)
+- [ ] Preparar logs de “decisão” (timestamp, métricas do sinal, evento)
+
+**Checklist — Conectividade**
+- [ ] Definir objeto “evento” (tipo, timestamp, confiança/nível, latência)
+- [ ] Garantir mensagem do bot padronizada para avaliação
+
+**Checklist — UX/UI**
+- [ ] Definir sinalização para “modo teste” vs “evento real”
+- [ ] Definir feedback de erro (sem Wi‑Fi / sem Telegram / falha detecção)
+
+**Entregáveis**
+- Dataset + metadata
+- Especificação do evento
+
+**Aceite**
+- Dataset cobre cenários positivos e negativos relevantes
+
+---
+
+### Card F1.4 — Conceito de case + requisitos físicos/visuais
+**Objetivo:** alinhar design com captação de som e visibilidade do alerta.
+
+**Checklist — DSP**
+- [ ] Requisitos acústicos (aberturas, posição do sensor, evitar abafamento)
+- [ ] Observações sobre reverberação/ressonância da case
+
+**Checklist — Firmware**
+- [ ] Requisitos de botão “teste”, indicador de status, alimentação
+- [ ] Requisitos de posicionamento de LEDs e acesso
+
+**Checklist — Conectividade**
+- [ ] Requisitos de indicadores visuais de estados (connecting/ready/error)
+- [ ] Definir comportamento offline (alerta local continua)
+
+**Checklist — UX/UI**
+- [ ] Esboço CAD inicial (layout e dimensões aproximadas)
+- [ ] Padrões de alerta acessíveis (não depender só de cor)
+
+**Entregáveis**
+- Esboço CAD + lista de requisitos físicos
+
+**Aceite**
+- Design conceitual não impede captação nem visibilidade
+
+---
+
+## Épico F2 — Desenvolvimento do MVP Virtual
+
+### Card F2.1 — Detecção baseline + pipeline de decisão
+**Objetivo:** primeira versão funcional da detecção e geração de eventos.
+
+**Checklist — DSP**
+- [ ] Implementar baseline (FFT/bandas/energia/picos)
+- [ ] Definir parâmetros: threshold, duração mínima, cooldown
+- [ ] Criar roteiro de testes usando dataset (Python)
+
+**Checklist — Firmware**
+- [ ] Task de áudio + task de decisão + fila de eventos
+- [ ] Estrutura de eventos (enum/tipos) + timestamps
+- [ ] Logs básicos de depuração
+
+**Checklist — Conectividade**
+- [ ] Função de envio desacoplada (fila → task rede)
+- [ ] Mensagem padronizada (tipo, hora, latência, “nível/confiança” se houver)
+- [ ] Tratamento básico de falhas
+
+**Checklist — UX/UI**
+- [ ] Padrões LED por tipo de evento (ritmo, intensidade, duração)
+- [ ] “Modo teste” (aciona confirmação visual + Telegram)
+
+**Entregáveis**
+- Detecção baseline integrada
+- Padrões LED definidos e documentados
+
+**Aceite**
+- Evento dispara LED e Telegram de forma consistente (mesmo em teste controlado)
+
+---
+
+### Card F2.2 — Conectividade robusta mínima + configuração
+**Objetivo:** reconexão, retries e estados do sistema sem travar o processamento.
+
+**Checklist — DSP**
+- [ ] Regras para reduzir spam (cooldown e critérios mínimos)
+- [ ] Ajustes rápidos anti-ruído
+
+**Checklist — Firmware**
+- [ ] Garantir que rede não bloqueie áudio (timeouts/prioridades)
+- [ ] Implementar estados do sistema (BOOT/CONNECTING/READY/ERROR)
+- [ ] Watchdog/logs de falha (se aplicável)
+
+**Checklist — Conectividade**
+- [ ] Reconexão Wi‑Fi (backoff, timeout)
+- [ ] Retry Telegram com limites
+- [ ] Config fora do código (token/chat_id)
+
+**Checklist — UX/UI**
+- [ ] Padrões de LED para estados (connecting/ready/error)
+- [ ] Rascunho do guia de configuração
+
+**Entregáveis**
+- Reconexão e retries funcionando
+- Estados com feedback visual
+
+**Aceite**
+- Queda de rede não trava o sistema e o estado fica claro ao usuário
+
+---
+
+### Card F2.3 — Integração end-to-end (DSP + Firmware + Rede + UX)
+**Objetivo:** consolidar o fluxo completo e preparar validação.
+
+**Checklist — DSP**
+- [ ] Portar algoritmo do Python para C/C++ (comparar resultados básicos)
+- [ ] Criar logs de features (pico/energia/banda) para calibrar
+
+**Checklist — Firmware**
+- [ ] Módulos integrados com interfaces claras
+- [ ] Rate limit e anti-loop de eventos
+- [ ] Inicialização/boot estáveis
+
+**Checklist — Conectividade**
+- [ ] Mensagens consistentes + mensagem “sistema pronto”
+- [ ] Medição aproximada de latência (evento→envio)
+
+**Checklist — UX/UI**
+- [ ] Refinar padrões (padrões distintos e compreensíveis)
+- [ ] Checklist de experiência (modo teste, erros, estados)
+
+**Entregáveis**
+- MVP integrado end-to-end + instruções de execução
+
+**Aceite**
+- Demo repetível e estável com roteiro curto
+
+---
+
+### Card F2.4 — Validação virtual + métricas
+**Objetivo:** medir acerto/falsos positivos/latência e ajustar parâmetros.
+
+**Checklist — DSP**
+- [ ] Medir taxa de acerto vs falso positivo no dataset
+- [ ] Ajustar thresholds e regras
+- [ ] Registrar resultados (tabela/relatório)
+
+**Checklist — Firmware**
+- [ ] Instrumentar timestamps (pipeline) para medir latência
+- [ ] Criar cenários de estresse (sequência de eventos)
+
+**Checklist — Conectividade**
+- [ ] Testar quedas de rede/atrasos/fila cheia
+- [ ] Confirmar recuperação automática e logs
+
+**Checklist — UX/UI**
+- [ ] Validar legibilidade dos padrões
+- [ ] Ajustar feedback de erro e modo teste
+
+**Entregáveis**
+- Relatório de validação + lista de problemas priorizada
+
+**Aceite**
+- Métricas mínimas coletadas e ajustes aplicados
+
+---
+
+## Épico F3 — Refinamento e Design
+
+### Card F3.1 — Otimização (CPU/memória/latência) + estabilidade
+**Checklist — DSP**
+- [ ] Otimizar FFT/janelas/extração
+- [ ] Ajustar regras para reduzir falsos positivos
+
+**Checklist — Firmware**
+- [ ] Reduzir alocações e padronizar buffers
+- [ ] Revisar prioridades FreeRTOS e evitar travamentos
+- [ ] Modo debug vs modo demo (logs)
+
+**Checklist — Conectividade**
+- [ ] Boas práticas de segurança e validações
+- [ ] Melhorar tratamento de erros/reconexão
+
+**Checklist — UX/UI**
+- [ ] Ajustar brilho/conforto visual
+- [ ] Padronizar mensagens e estados
+
+**Entregáveis**
+- Versão otimizada do MVP
+
+**Aceite**
+- Melhora mensurável (ou observável) vs baseline (latência/estabilidade/FP)
+
+---
+
+### Card F3.2 — CAD final + especificação de montagem
+**Checklist — DSP**
+- [ ] Revisar requisitos acústicos no CAD final
+
+**Checklist — Firmware**
+- [ ] Definir pontos de fixação e acesso a interfaces
+
+**Checklist — Conectividade**
+- [ ] Requisitos de indicação de estado e identificação do setup
+
+**Checklist — UX/UI**
+- [ ] Finalizar CAD (furações som, difusor de luz, botão, energia)
+- [ ] Render/vistas para apresentação
+
+**Entregáveis**
+- CAD final + renders + mini-guia de montagem
+
+**Aceite**
+- Design pronto para apresentação e coerente com requisitos
+
+---
+
+### Card F3.3 — Calibração anti-falso-positivo (parâmetros finais)
+**Checklist — DSP**
+- [ ] Ajustar thresholds/cooldown/duração mínima
+- [ ] Criar “presets” se necessário (ambiente silencioso/barulhento)
+- [ ] Registrar antes/depois
+
+**Checklist — Firmware**
+- [ ] Centralizar parâmetros (config)
+- [ ] Garantir que calibragem não degrade estabilidade
+
+**Checklist — Conectividade**
+- [ ] Anti-spam (rate limit/agrupamento)
+- [ ] Mensagens de resumo (se ocorrerem muitos eventos)
+
+**Checklist — UX/UI**
+- [ ] Ajustar padrão para não ser agressivo em falsos alarmes
+- [ ] Feedback claro se houver “detecção incerta” (se adotarem)
+
+**Entregáveis**
+- Tabela de parâmetros finais + justificativas
+
+**Aceite**
+- Redução clara de falsos positivos nos testes definidos
+
+---
+
+### Card F3.4 — Robustez de falhas (rede/fluxo/filas) + degradação
+**Checklist — DSP**
+- [ ] Definir comportamento quando rede falha (detecção local continua)
+
+**Checklist — Firmware**
+- [ ] Simular falhas (Wi‑Fi off, Telegram off, fila cheia)
+- [ ] Garantir alerta visual mesmo offline
+- [ ] Reconexão automática + estados
+
+**Checklist — Conectividade**
+- [ ] Backoff consistente + limites + logs
+- [ ] Garantir que falhas não travem o sistema
+
+**Checklist — UX/UI**
+- [ ] Padrões claros: sem rede ≠ sem detecção
+- [ ] Troubleshooting básico
+
+**Entregáveis**
+- Plano de falhas + evidências de testes
+
+**Aceite**
+- Função principal (alerta visual) permanece confiável mesmo com rede instável
+
+---
+
+# 2º Período — Finalização e Entrega
+
+## Épico F4 — Consolidação e Entrega do MVP
+
+### Card F4.1 — Consolidar logs, evidências e métricas finais
+**Checklist — DSP**
+- [ ] Consolidar métricas (acerto/FP/latência)
+- [ ] Preparar gráficos/tabelas para o relatório
+
+**Checklist — Firmware**
+- [ ] Consolidar logs e resultados de estabilidade
+- [ ] Revisar organização do repositório
+
+**Checklist — Conectividade**
+- [ ] Consolidar métricas de envio (sucesso/falha/retry)
+- [ ] Padronizar exemplos de mensagens
+
+**Checklist — UX/UI**
+- [ ] Consolidar imagens do CAD e padrões
+- [ ] Checklist final de experiência
+
+**Entregáveis**
+- Pacote de evidências (tabelas, logs, prints)
+
+**Aceite**
+- Dados suficientes para sustentar conclusões e apresentação
+
+---
+
+### Card F4.2 — Relatório técnico (final) + arquitetura
+**Checklist (divisão por seção)**
+- [ ] DSP: metodologia + dataset + resultados + limitações
+- [ ] Firmware: arquitetura + simulação + desempenho + estados
+- [ ] Conectividade: fluxo + resiliência + segurança
+- [ ] UX/UI: fluxo do usuário + acessibilidade + CAD + padrões
+
+**Entregáveis**
+- Relatório final completo
+
+**Aceite**
+- Documento reproduzível (alguém consegue rodar e entender o MVP)
+
+---
+
+### Card F4.3 — Mídia + Pitch (slides e demo)
+**Checklist — DSP**
+- [ ] Narrativa problema→solução→métricas
+
+**Checklist — Firmware**
+- [ ] Roteiro de demo e estabilidade da apresentação
+
+**Checklist — Conectividade**
+- [ ] Demonstração de notificação e estados de rede
+
+**Checklist — UX/UI**
+- [ ] Vídeo demo + imagens CAD + slides com foco em acessibilidade
+
+**Entregáveis**
+- Slides + vídeo + roteiro de demo
+
+**Aceite**
+- Apresentação executa sem improviso técnico
+
+---
+
+### Card F4.4 — Manual do usuário + FAQ + Troubleshooting
+**Checklist — DSP**
+- [ ] Orientações simples sobre fatores que impactam detecção
+
+**Checklist — Firmware**
+- [ ] Como usar modo teste + interpretar LEDs
+
+**Checklist — Conectividade**
+- [ ] Configurar Wi‑Fi/Telegram + problemas comuns
+
+**Checklist — UX/UI**
+- [ ] Manual com prints + linguagem acessível + FAQ
+
+**Entregáveis**
+- Manual + FAQ
+
+**Aceite**
+- Usuário leigo consegue configurar e testar seguindo o manual
+
+---
+
+### Card F4.5 — Preparação final do repositório + ensaio geral
+**Checklist — DSP**
+- [ ] Revisar parâmetros finais e documentar
+
+**Checklist — Firmware**
+- [ ] README final (como rodar/testar) + limpeza do repositório
+
+**Checklist — Conectividade**
+- [ ] Remover segredos do repo + instruções seguras
+
+**Checklist — UX/UI**
+- [ ] Revisar consistência visual e documentação
+
+**Entregáveis**
+- Repo “pronto para entrega” + checklist de ensaio concluído
+
+**Aceite**
+- Tudo funciona a partir do repositório com instruções claras
+
+---
+
+### Card F4.6 — Entrega do MVP
+**Checklist — Todos**
+- [ ] Apresentação final LARAF
+- [ ] Entregar relatório + manual + protótipo simulado + mídia
+
+**Entregáveis**
+- Pacote final completo
+
+**Aceite**
+- Entrega realizada e demonstrada com sucesso
+
+---
+
+## ✅ Definição de Pronto (DoD) — para qualquer Card
+- [ ] Código/artefatos relacionados executam/compilam no ambiente definido
+- [ ] Evidência de teste anexada (log/print/vídeo/checklist)
+- [ ] Documentação atualizada (docs/README/relatório)
+- [ ] Validação registrada em reunião (OK)
